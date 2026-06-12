@@ -1,6 +1,7 @@
 package tr1fker;
 
 import tr1fker.connections.DatabaseConnection;
+import tr1fker.controllers.menus.MainMenuController;
 
 import java.sql.Connection;
 
@@ -14,5 +15,9 @@ public class Main {
         }
 
         System.out.println("Успешное подключение к БД!");
+
+        MainMenuController mainController = new MainMenuController();
+        mainController.run();
+        System.out.println("Программа успешно завершена!");
     }
 }
