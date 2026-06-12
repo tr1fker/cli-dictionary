@@ -28,6 +28,9 @@ public class WordMenuController extends AbstractMainMenuController {
                 this.wordsRepository.createWord();
                 break;
             case 2:
+                this.wordsRepository.showAllWords();
+                break;
+            case 3:
                 this.stop();
                 break;
         }

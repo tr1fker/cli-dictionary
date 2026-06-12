@@ -1,10 +1,11 @@
 package tr1fker.dtos;
 
 import tr1fker.connections.DatabaseConnection;
+import tr1fker.models.Word;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WordsDTO {
     private Connection connection;
@@ -25,5 +26,25 @@ public class WordsDTO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public List<Word> readWords(){
+        String sql = "SELECT * FROM words;";
+        List<Word> words = null;
+        try{
+            Statement stmt = this.connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            words = new ArrayList<>();
+            while(rs.next()){
+                long id = rs.getLong("id");
+                String name = rs.getString("name");
+
+                words.add(new Word(id, name));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return words;
     }
 }
