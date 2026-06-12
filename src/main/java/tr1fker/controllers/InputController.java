@@ -25,4 +25,12 @@ public class InputController {
             }
         }
     }
+
+    public String inputNewName(CLIView cliView){
+        while (true){
+            cliView.printNewName();
+            String line = scanner.nextLine();
+            return line;
+        }
+    }
 }
