@@ -1,11 +1,23 @@
 CREATE DATABASE dictionary;
 
-CREATE TABLE IF NOT EXISTS words (
+CREATE TABLE words (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(15) NOT NULL,
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
+ALTER TABLE words RENAME TO en_words;
+
+CREATE TABLE ru_words (
+	id SERIAL PRIMARY KEY,
+	id_en_word INT,
+	name VARCHAR(15) NOT NULL,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+
+SELECT * FROM ru_words;
+SELECT * FROM en_words;
+SELECT * FROM en_words WHERE name = 'Hello';
 
 
 
