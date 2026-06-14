@@ -13,4 +13,13 @@ public class Word {
     public String getName(){
         return this.name;
     }
+
+    public long getId(){
+        return this.id;
+    }
+
+    @Override
+    public String toString(){
+        return this.id + " " + this.name;
+    }
 }
